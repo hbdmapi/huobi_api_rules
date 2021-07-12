@@ -20,7 +20,7 @@ It means via http `get` methon to get public data.
 It means via websocket to get public data. It can be sub or request.
 - When sub private data, you will receive private data for many times.
 - When request private data, you will receive private data one time.
-- The received data is binary data which was compressed of all
+- The received data is binary data which was compressed of spot, future, coin-swap, usdt-swap
 
 <br/><br/>
 
@@ -33,7 +33,7 @@ It means via http `post/get` methon to get private data.
 <br/>All http `post` methons are getting private data. 
 - In http post interface, the signature params are parts of url. And the other params are parts of body data and they must be json formation.
 
-Some of http `get` methons are getting private data. 
+Some of http `get` methons get private data. 
 - In http get interface, all the params are parts of url when sending request.
 
 Signature Illustration:
@@ -43,7 +43,7 @@ Signature Illustration:
 The signature string of all as same as follow:
 - GET_or_POST<br/>
   lower_case_host_name<br/>
-  api_path_start_with_/<br/>
+  api_path_starts_with_/<br/>
   AccessKeyId=your_akid&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=url_encode_utc_time
 
 
@@ -52,8 +52,8 @@ It means via websocket to get private data. It can be sub or request.
 - When sub private data, you will receive private data for many times
 - When request private data, you will receive private data one time.
 - The received data is binary data which was compressed except spot's account and order pushed messege.
-- spot's account and order pushed messege ara plaintext.
-- In ws private, you must send signature data and then sub/request your params.
+- The pushed messege of spot's account and order are plaintext data.
+- In ws private, you must send signature data and then sub/req your request.
 
 Signature Illustration:
 - The signature methods of the four product(spot, future, coin-swap, usdt-swap) are the same.
@@ -62,12 +62,12 @@ Signature Illustration:
 The signature string of spot as same as follow:
 - GET<br/>
   lower_case_host_name<br/>
-  api_path_start_with_/<br/>
+  api_path_starts_with_/<br/>
   accessKey=your_akid&signatureMethod=HmacSHA256&signatureVersion=2.1&timestamp=url_encode_utc_time
 
 The signature string of future, coin-swap, usdt-swap as same as follow:
 - GET<br/>
   lower_case_host_name<br/>
-  api_path_start_with_/<br/>
+  api_path_starts_with_/<br/>
   AccessKeyId=your_akid&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=url_encode_utc_time
 <br/><br/>
