@@ -117,7 +117,7 @@ class Ws:
         print("ws close.")
         self._has_open = False
         if not self._active_close and self._sub_str is not None:
-            self._create_ws()
+            self.open()
             self.sub(self._sub_str)
 
     def _on_error(self, ws, error):
